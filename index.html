@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Pooja Meri Jaan ❤️</title>
+<style>
+*{box-sizing:border-box} body{margin:0;min-height:100vh;overflow-x:hidden;font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);color:#fff;display:flex;justify-content:center;align-items:center}
+.card{width:min(94%,440px);margin:20px;padding:28px 20px;text-align:center;background:#ffffff26;
+border:1px solid #ffffff55;border-radius:28px;backdrop-filter:blur(12px);box-shadow:0 20px 60px #0003}
+h1{font-size:29px;margin:6px 0 12px} p{font-size:17px;line-height:1.55}
+button{border:0;border-radius:999px;padding:13px 22px;font-size:16px;font-weight:700;cursor:pointer;color:#e8436b;background:#fff;box-shadow:0 8px 20px #0002}
+.hidden{display:none}.progress{height:10px;background:#ffffff4d;border-radius:20px;overflow:hidden;margin:22px 0}.bar{height:100%;width:0;background:#fff;transition:width 2s}
+.gallery{display:flex;gap:9px;overflow:hidden;margin:15px 0}.gallery img{width:33.33%;height:145px;object-fit:cover;border-radius:15px}
+#msg{min-height:105px}.small{font-size:13px;opacity:.9}.heart{position:fixed;bottom:-30px;animation:float 5s linear forwards;pointer-events:none}
+@keyframes float{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+<section id="start">
+<div style="font-size:58px">🎁</div>
+<h1>A Secret Birthday Surprise</h1>
+<p>Hey <b>Pooja Meri Jaan</b> ❤️<br>Pruthvi made a little something just for you.</p>
+<button onclick="start()">Tap to Start ✨</button>
+</section>
+
+<section id="loading" class="hidden">
+<h1>HAPPINESS GENERATOR</h1>
+<p>Scanning Pooja's birthday happiness...</p>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<p id="status">Initializing... 💗</p>
+</section>
+
+<section id="surprise" class="hidden">
+<div style="font-size:48px">🎂</div>
+<h1>Happy Birthday, Pooja! ❤️</h1>
+<p id="msg"></p>
+<div class="gallery">
+<img src="pooja1.jpg"><img src="pooja2.jpg"><img src="pooja3.jpg">
+</div>
+<button onclick="moreLove()">Generate More Happiness 💕</button>
+<p class="small">Made with love by Pruthvi</p>
+</section>
+</div>
+<script>
+const messages=[
+"Today is all about you! Keep smiling, laughing and making beautiful memories. 🥰",
+"Some people make ordinary moments special. You're one of those people. ❤️",
+"May your birthday bring you the same happiness you give to the people around you. ✨",
+"Happy Birthday to Pooja Meri Jaan! Keep shining and never stop smiling. 🎂💗"
+];
+let i=0;
+function start(){
+document.getElementById('start').classList.add('hidden');
+document.getElementById('loading').classList.remove('hidden');
+setTimeout(()=>document.getElementById('bar').style.width='100%',100);
+setTimeout(()=>document.getElementById('status').textContent="Memories found... 📸",600);
+setTimeout(()=>document.getElementById('status').textContent="Friendship level: ♾️",1200);
+setTimeout(()=>document.getElementById('status').textContent="Birthday happiness: 100% 🎉",1700);
+setTimeout(showSurprise,2500);
+}
+function showSurprise(){
+document.getElementById('loading').classList.add('hidden');
+document.getElementById('surprise').classList.remove('hidden');
+document.getElementById('msg').textContent=messages[0]; hearts();
+}
+function moreLove(){i=(i+1)%messages.length;document.getElementById('msg').textContent=messages[i];hearts();}
+function hearts(){for(let n=0;n<22;n++){let h=document.createElement('div');h.className='heart';
+h.textContent=['❤️','💗','💖','✨','💕'][Math.floor(Math.random()*5)];
+h.style.left=Math.random()*100+'vw';h.style.fontSize=(18+Math.random()*25)+'px';
+h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}}
+</script>
+</body>
+</html>
